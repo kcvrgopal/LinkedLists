@@ -64,24 +64,40 @@ class Linkedlist_Linearlist
 		}
 		else
 		{
-			cout<<"In else"<<endl;
-			node *temp=new node;
-			node *temp2=new node;
-			temp=temp2=head;
-			cout<<head->data<<"&&"<<temp->data<<"&&"<<temp2->data<<endl;
-
-			for(int i=0;i<pos-2;i++)
+			//cout<<"In else"<<endl;
+			node *temp=head;
+			node *temp2=head;
+			node *p=head;
+			//cout<<pos<<endl;
+			int c=1;
+			while(p->next!=NULL)
 			{
+				if (c==pos-1)
+				{
+					break;
+				}
 				temp=temp->next;
-				cout<<"first\n";
+				//cout<<c<<endl;;
+				c++;
+				p=p->next;
+			//	cout<<"first\n";
 			}
-			cout<<temp->data;
-			for(int j=0;j<pos;j++)
+			//cout<<p->data;
+			p=head;
+			c=1;
+			//cout<<p->data;
+			while(p->next!=NULL)
 			{
+				if (c==pos+1)
+					{
+						break;
+					}
 				temp2=temp2->next;
 			//	cout<<"second\n";
+				p=p->next;
+					c++;
 			}
-			cout<<temp2->data;
+			cout<<p->data;
 		//	cout<<temp->data<<"&&"<<temp2->data<<endl;
 			temp->next=temp2;
 		}
@@ -154,7 +170,7 @@ int main()
 					break;
 			case 6: cout<<"Enter the position to remove"<<endl;
 					cin>>data;
-					l.removeAtPosition(pos);
+					l.removeAtPosition(data);
 					break;
 			case 3: l.display();
 					break;
